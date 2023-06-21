@@ -43,7 +43,7 @@ public class passwordMaker4 implements DocumentListener /* put into effect the i
     int uc,lc,space,spc,dig,l;
     String S,Str2,msg,msg2;
     
-    passwordMaker4(){
+    public void Myframe(){
         ch = ' ';
         S=""; msg= "";
         l = 0;
@@ -175,7 +175,14 @@ public class passwordMaker4 implements DocumentListener /* put into effect the i
         
         Rbutton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                F1.dispose();
+
+                passwordMaker4 obj2 = new passwordMaker4();
+                obj2.Myframe();
+                // t1.setText("");
+                // t1.setEditable(true);
+                // t2.setText("");
+                // P2.setVisible(false);
+                //lengthSlider.setValue(8);
             }
         });
         Ebutton.addActionListener(new ActionListener(){
@@ -225,7 +232,9 @@ public class passwordMaker4 implements DocumentListener /* put into effect the i
     }
     
     public void Suggestions(){
-        S = t1.getText();
+        //S = t1.getText();//The method getText() from the type JPasswordField is deprecatedJava(67108967)
+        char [] pass = t1.getPassword();
+        S = new String(pass);
         l = S.length();
         uc=0;lc=0;space=0;dig=0;spc=0;
         for(int i = 0; i<= S.length()-1; i++){
@@ -310,5 +319,6 @@ public class passwordMaker4 implements DocumentListener /* put into effect the i
     }
     public static void main(String [] args){
         passwordMaker4 obj = new passwordMaker4();
+        obj.Myframe();
     }
 }
